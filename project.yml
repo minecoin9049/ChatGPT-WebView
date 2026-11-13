@@ -6,13 +6,17 @@ targets:
   ChatGPTCompat:
     type: application
     platform: iOS
-    sources: [Compat]
+    sources:
+      - path: Compat
+        excludes: [Mobile.js]
+      - path: Compat/Mobile.js
+        buildPhase: resources
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.minecoin9049.chatgptcompat
         GENERATE_INFOPLIST_FILE: YES
-        MARKETING_VERSION: "0.2"
-        CURRENT_PROJECT_VERSION: "2"
+        MARKETING_VERSION: "0.3"
+        CURRENT_PROJECT_VERSION: "3"
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_CFBundleDisplayName: ChatGPT
         INFOPLIST_KEY_NSMicrophoneUsageDescription: "Microphone access for voice input"
