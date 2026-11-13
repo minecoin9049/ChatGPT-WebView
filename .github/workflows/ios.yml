@@ -1,0 +1,17 @@
+name: Build iOS test
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install xcodegen
+      - run: xcodegen generate
+      - run: xcodebuild -project ChatGPTCompat.xcodeproj -scheme ChatGPTCompat -configuration Release -sdk iphoneos -derivedDataPath build CODE_SIGNING_ALLOWED=NO build
+      - run: mkdir -p Payload && cp -R build/Build/Products/Release-iphoneos/ChatGPTCompat.app Payload/ && zip -qry ChatGPTCompat.ipa Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ChatGPTCompat-unsigned
+          path: ChatGPTCompat.ipa
