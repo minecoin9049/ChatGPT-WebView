@@ -11,6 +11,9 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.minecoin9049.chatgptcompat
         GENERATE_INFOPLIST_FILE: YES
+        MARKETING_VERSION: "0.2"
+        CURRENT_PROJECT_VERSION: "2"
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_CFBundleDisplayName: ChatGPT
         INFOPLIST_KEY_NSMicrophoneUsageDescription: "Microphone access for voice input"
         INFOPLIST_KEY_NSCameraUsageDescription: "Camera access for image uploads"
